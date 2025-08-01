@@ -43,7 +43,7 @@ The plot should now consist of at least one annotated region, such as in the fol
 **NOTE:** It is possible to change the shape of the data 'cloud' by experimenting with different values for the "UMAP_seed" parameter in config.py (ui_layout_config dictionary). This will produce different 2D representations of the music collection, which may be useful for discovery and exploration purposes. By default, the "UMAP_seed" value is set to 7.
 
 ## Classifier training and predictions
-After all relevant data point regions have been assigned with any class of choice, a multilayer perceptron (MLP) classifier is trained to predict the class of each remaining unannotated data point. To train the MLP classifier, click on the "Train & Predict" button. After the classifier is trained, predictions are displayed as follows: 
+After all relevant data point regions have been assigned with any class of choice, a multilayer perceptron (MLP) classifier can be trained to predict the class of each remaining unannotated data point. To train the MLP classifier, click on the "Train & Predict" button. After the classifier is trained, predictions are displayed as follows: 
 
 <img width="707" height="197" alt="Screenshot 2025-08-01 at 17 34 53" src="https://github.com/user-attachments/assets/fcc54232-17f1-473c-8808-2054b38f4917" />
 
@@ -63,6 +63,7 @@ Furthermore, the datatables contain a detailed overview of track status, classif
 ## Accepting classifier predictions
 When, in your opinion, the classifier is good enough at predicting classes for unannotated data points, the classifications can be accepted with the "Accept Predictions" button. 
 
+To save the classifier predictions, the "Download results" in the bottom-right corner can be clicked. A .txt file containing user class annotations and classifier predictions for unannotated data points is then downloaded. 
 
 
 # Academic sources mentioned in this repo
