@@ -3,8 +3,6 @@
 # About
 This repository contains the code for the user interface for IML-based (re-)classification of music collections, as part of the Master's thesis by Danila Alexandrovich Danilin for the Master in Sound and Music Computing, MTG UPF, Barcelona. 
 
-The aim of this user interface is the identification of music tracks which 
-
 # Setting up and running the UI
 The UI can be installed on a local device by cloning into this Github repository. Python 3.10 must be installed on the local device to ensure proper functionality. After cloning into the repository, it is recommended to create a virtual environment for the installation of all necessary Python dependencies. After opening a command-line interface (CLI) and
 changing to the directory in which the repository has been installed, you can run the following commands; 
@@ -42,10 +40,28 @@ The plot should now consist of at least one annotated region, such as in the fol
 
 <img width="716" height="247" alt="Screenshot 2025-08-01 at 16 00 15" src="https://github.com/user-attachments/assets/a8ec5172-46d9-4977-a9f6-422bb8b31a65" />
 
-**NOTE: **It is possible to change the shape of the data 'cloud' by experimenting with different values for the "UMAP_seed" parameter in config.py (ui_layout_config dictionary). This will produce different 2D representations of the music collection, which may be useful for discovery and exploration purposes. By default, the "UMAP_seed" value is set to 7.
+**NOTE:** It is possible to change the shape of the data 'cloud' by experimenting with different values for the "UMAP_seed" parameter in config.py (ui_layout_config dictionary). This will produce different 2D representations of the music collection, which may be useful for discovery and exploration purposes. By default, the "UMAP_seed" value is set to 7.
 
 ## Classifier training and predictions
+After all relevant data point regions have been assigned with any class of choice, a multilayer perceptron (MLP) classifier is trained to predict the class of each remaining unannotated data point. To train the MLP classifier, click on the "Train & Predict" button. After the classifier is trained, predictions are displayed as follows: 
 
+<img width="707" height="197" alt="Screenshot 2025-08-01 at 17 34 53" src="https://github.com/user-attachments/assets/fcc54232-17f1-473c-8808-2054b38f4917" />
+
+Some tracks are highlighted with additional symbols; tracks with the ‼️ symbol have high class prediction uncertainty (CPU heuristic), and tracks with the ↔️ symbol have a high (Euclidean) distance to the nearest annotated data point (DC heuristic). Note that for the ↔️ symbol/DC heuristic, the mutual Euclidean distance is not calculated with the 2D coordinates of data points, but using the full, higher-dimensional embedding vectors associated with an audio file. 
+
+By adding the highlighted tracks to the training set in future classifier training iterations, it is hypothesized that the classifier is able to reach a higher classification accuracy within fewer training iterations. This is discussed in more detail in the thesis manuscript. 
+
+More details on the classifier predictions can be found in the "Problematic Tracks Statistics" component of the UI: 
+
+<img width="714" height="234" alt="Screenshot 2025-08-01 at 17 38 43" src="https://github.com/user-attachments/assets/8ef5cdf9-caa0-4fa3-b129-c0db16b9e451" />
+
+Furthermore, the datatables contain a detailed overview of track status, classifier prediction probabilities and other metadata:
+
+<img width="713" height="341" alt="Screenshot 2025-08-01 at 17 40 01" src="https://github.com/user-attachments/assets/4d94e8b3-1011-438c-b434-2bf19c1c7f14" />
+
+
+## Accepting classifier predictions
+When, in your opinion, the classifier is good enough at predicting classes for unannotated data points, the classifications can be accepted with the "Accept Predictions" button. 
 
 
 
