@@ -18,7 +18,7 @@ pip install -r requirements.txt
 Subsequently, the UI software can be run from the CLI with;
 
 ```
-python [DIRECTORY/TO/UI/REPO/user interface.py].
+python [DIRECTORY/TO/UI/REPO/user_interface.py]
 ```
 
 The UI is now locally hosted and accessible with any browser on http://127.0.0.1:8050/.
@@ -33,14 +33,18 @@ It is now possible to upload a .json embedding file and interact with the UI. In
 
 The audio files of the 300-song subset of the MusAV dataset can be found on https://drive.google.com/drive/folders/1dmaGrrK7HqUINAqtUbXuJsaBmwwxBr6k?usp=drive_link. To ensure that audio playback on hover can be activated, download the audio file directory from the aforementioned URL, and then specify the path in the text input field next to "Play audio on hover?" (under the 2D plot). 
 
-## Data point annotation
-After the .json embedding file has been uploaded, a 2D visualization of the music collection is presented, derived from the music collection embedding space which has been reduced in dimensionality using the UMAP (McInnes & Healy, 2018) technique. Each audio is represented as a distinct data point in the interactive 2D plot. 
+## Data visualisation and annotation
+After the .json embedding file has been uploaded, a 2D visualization of the music collection is presented, derived from the music collection embedding space which has been reduced in dimensionality using the UMAP (McInnes & Healy, 2018) technique. Each audio is represented as a distinct data point in the interactive 2D plot. Audio files which are considered to be similar by the audio embedding model, are displayed close to each other in the 2D plot. 
 
 To assign a class to one or more data points, hover on the 2D plot, and in the upper right-hand corner, a collection of symbols appears. Click on the "Box Select" or "Lasso Select" symbol, and then draw a boundary around the data points to be classified. Next, in the upper left-hand corner, enter a class name which describes the selected data points. Then, click the "Assign Class" button.  
 
 The plot should now consist of at least one annotated region, such as in the following example:
 
 <img width="716" height="247" alt="Screenshot 2025-08-01 at 16 00 15" src="https://github.com/user-attachments/assets/a8ec5172-46d9-4977-a9f6-422bb8b31a65" />
+
+**NOTE: **It is possible to change the shape of the data 'cloud' by experimenting with different values for the "UMAP_seed" parameter in config.py (ui_layout_config dictionary). This will produce different 2D representations of the music collection, which may be useful for discovery and exploration purposes. By default, the "UMAP_seed" value is set to 7.
+
+## Classifier training and predictions
 
 
 
