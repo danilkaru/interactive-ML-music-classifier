@@ -13,7 +13,7 @@ config = {
     
     # Audio related
     "play_audio": False,
-    "audio_path": "/Users/danieldanilin/Downloads/master-thesis-full/musav-08-02-2025/audio_chunks"
+    "audio_path": "/path/to/audio/folder"
 }
 
 # TO DO: expand/integrate with other config dictionaries
