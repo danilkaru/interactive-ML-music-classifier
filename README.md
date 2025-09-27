@@ -21,6 +21,9 @@ python [DIRECTORY/TO/UI/REPO/user_interface.py]
 
 The UI is now locally hosted and accessible with any browser on http://127.0.0.1:8050/.
 
+# Generating audio embeddings
+A .json embedding file containing CLAP audio embeddings can be generated with the following Google Colab notebook: https://colab.research.google.com/drive/1s79vkd4nqH370V9KTwMDpQ8WiudtGlzG?usp=sharing.
+
 # Interacting with the UI
 After the UI has been succesfully activated, the page display should look as follows (formatting can vary depending on browser):
 <img width="717" height="420" alt="UI_main" src="https://github.com/user-attachments/assets/2fdd7ff0-1852-438e-b8cc-8b9680f56b1f" />
